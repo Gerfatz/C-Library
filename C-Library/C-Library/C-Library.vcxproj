@@ -147,7 +147,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="C-Library.cpp" />
+    <ClCompile Include="C-Library.c" />
+    <ClCompile Include="GetSection.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GetSection.h" />
+    <ClCompile Include="Test.c">
+      <FileType>CppCode</FileType>
+    </ClCompile>
+    <ClInclude Include="Test.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
