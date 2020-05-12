@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClCompile Include="C-Library.c" />
     <ClCompile Include="GetSection.c" />
+    <ClCompile Include="Zweierkomplement.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GetSection.h" />
@@ -156,6 +157,7 @@
       <FileType>CppCode</FileType>
     </ClCompile>
     <ClInclude Include="Test.h" />
+    <ClInclude Include="Zweierkomplement.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
