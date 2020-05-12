@@ -1,6 +1,7 @@
 #include "stdio.h"
 #include "GetSection.h"
 #include "Test.h"
+#include "Convert.h"
 
 void Runtest(const char* name, uint8_t(*testFunction)(void)) {
     if (testFunction()) {
@@ -22,5 +23,14 @@ void TestGetSection() {
 int main()
 {
     TestGetSection();
+    int n;
+    printf("Enter a decimal number (max. 1023): ");
+    scanf_s("%d", &n);
+    printf("%d in decimal = %lld in binary", n, Dectobin(n));
+
+    long long i;
+    printf("\nEnter a binary number: ");
+    scanf_s("%lld", &i);
+    printf("%lld in binary = %d in decimal", i, Bintodec(i));
     return 0;
 }

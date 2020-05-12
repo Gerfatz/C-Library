@@ -148,9 +148,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="C-Library.c" />
+    <ClCompile Include="Convert.c" />
     <ClCompile Include="GetSection.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Convert.h" />
     <ClInclude Include="GetSection.h" />
     <ClCompile Include="Test.c">
       <FileType>CppCode</FileType>
