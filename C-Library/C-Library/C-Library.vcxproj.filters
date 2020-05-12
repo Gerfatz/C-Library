@@ -24,12 +24,18 @@
     <ClCompile Include="C-Library.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Convert.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GetSection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Convert.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
