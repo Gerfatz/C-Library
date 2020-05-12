@@ -1,6 +1,7 @@
 #include "stdio.h"
 #include "GetSection.h"
 #include "Test.h"
+#include "FindBit.h"
 
 void Runtest(const char* name, uint8_t(*testFunction)(void)) {
     if (testFunction()) {
@@ -21,6 +22,7 @@ void TestGetSection() {
 
 int main()
 {
-    TestGetSection();
+    FindLastBit("100");
+    FindLastBit(100);
     return 0;
 }
