@@ -3,6 +3,8 @@
 #include "Zweierkomplement.h"
 #include "Test.h"
 #include "common.h"
+#include "Convert.h"
+
 
 void Runtest(const char* name, Bool(*testFunction)(void)) {
     if (testFunction()) {
@@ -33,5 +35,14 @@ int main()
     printf("\n");
     TestZweierkomplement();
 
+    int n;
+    printf("Enter a decimal number (max. 1023): ");
+    scanf_s("%d", &n);
+    printf("%d in decimal = %lld in binary", n, Dectobin(n));
+
+    long long i;
+    printf("\nEnter a binary number: ");
+    scanf_s("%lld", &i);
+    printf("%lld in binary = %d in decimal", i, Bintodec(i));
     return 0;
 }
