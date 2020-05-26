@@ -1,13 +1,12 @@
 #include "Test.h"
 #include "GetSection.h"
+#include "Zweierkomplement.h"
 
 
-/*
-	20 = 0b10100
-	Ausschneiden von bit 1, 2 und 3.
-	Erwartetes Resultat: 2
-*/
-uint8_t GetSectionBasicTest(void) 
+/*********************************************
+***************** GetSection *****************
+*********************************************/
+Bool GetSectionBasicTest(void) 
 {
 	int32_t result = 0;
 	int8_t statuscode = GetSection(20, 1, 3, &result);
@@ -15,20 +14,38 @@ uint8_t GetSectionBasicTest(void)
 	return !statuscode && result == 2;
 }
 
-uint8_t GetSectionInvalidStartParamTest(void) 
+Bool GetSectionInvalidStartParamTest(void) 
 {
 	int32_t result = 0;
 	return GetSection(20, SIZE_IN_BITS(int32_t) + 1, 3, &result) == 0x02 && result == 0;
 }
 
-uint8_t GetSectionInvalidEndParamTest(void) 
+Bool GetSectionInvalidEndParamTest(void) 
 {
 	int32_t result = 0;
 	return GetSection(20, 1, SIZE_IN_BITS(int32_t) + 1, &result) == 0x03 && result == 0;
 }
 
-uint8_t GetSectionEndLargerThanStartTest(void) 
+Bool GetSectionEndLargerThanStartTest(void) 
 {
 	int32_t result = 0;
 	return GetSection(20, 6, 3, &result) == 0x01 && result == 0;
 }
+
+/*********************************************
+************** Zweierkomplement **************
+*********************************************/
+Bool ZweierkomplementTest(void)
+{
+	char zweierkomplement[9];
+	int8_t code = GetZweierKomplement(20, zweierkomplement, 9);
+
+	return !strcmp(zweierkomplement, "11101100") && !code;
+}
+
+Bool ZweierkomplementTooSmallBufferTest(void)
+{
+	char zweierkomplement[8];
+	return GetZweierKomplement(20, zweierkomplement, 8); //Expects code 0x01
+}
+

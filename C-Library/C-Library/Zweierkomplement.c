@@ -7,9 +7,9 @@
 		0x00: OK
 		0x01: Buffer zu klein
 */
-uint8_t GetZweierkomplement(int8_t zahl, char* result, uint8_t bufferLength) 
+uint8_t GetZweierKomplement(int8_t zahl, char* result, uint8_t bufferLength)
 {
-	if (bufferLength < 8) 
+	if (bufferLength < 9) 
 	{
 		return 0x01;
 	}
@@ -19,10 +19,12 @@ uint8_t GetZweierkomplement(int8_t zahl, char* result, uint8_t bufferLength)
 		{
 			result[i] = '0';
 		}
+
+		result[8] = '\0';
 	}
 
 	uint8_t mask = 0x01;
-	uint8_t position = 7;
+	int8_t position = 7;
 
 	while (!(zahl & mask) && position >= 0)
 	{
@@ -40,5 +42,13 @@ uint8_t GetZweierkomplement(int8_t zahl, char* result, uint8_t bufferLength)
 		result[position] = zahl & mask ? '0' : '1';
 		MOVE_NEXT
 	}
+	
+	while (position >= 0)
+	{
+		result[position] = '1';
+		MOVE_NEXT
+	}
+
+	return 0x00;
 
 }
