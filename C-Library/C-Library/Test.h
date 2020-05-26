@@ -1,7 +1,12 @@
 #pragma once
 #include "stdint.h"
+#include "string.h"
+#include "common.h"
 
-uint8_t GetSectionBasicTest(void);
-uint8_t GetSectionInvalidStartParamTest(void);
-uint8_t GetSectionInvalidEndParamTest(void);
-uint8_t GetSectionEndLargerThanStartTest(void);
+Bool GetSectionBasicTest(void);
+Bool GetSectionInvalidStartParamTest(void);
+Bool GetSectionInvalidEndParamTest(void);
+Bool GetSectionEndLargerThanStartTest(void);
+
+Bool ZweierkomplementTest(void);
+Bool ZweierkomplementTooSmallBufferTest(void);

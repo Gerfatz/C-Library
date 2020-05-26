@@ -1,9 +1,12 @@
 #include "stdio.h"
 #include "GetSection.h"
+#include "Zweierkomplement.h"
 #include "Test.h"
+#include "common.h"
 #include "Convert.h"
 
-void Runtest(const char* name, uint8_t(*testFunction)(void)) {
+
+void Runtest(const char* name, Bool(*testFunction)(void)) {
     if (testFunction()) {
         printf("%s - Erfolgreich\n", name);
     }
@@ -20,9 +23,18 @@ void TestGetSection() {
     Runtest("GetSection Start larger than End Test", &GetSectionEndLargerThanStartTest);
 }
 
+void TestZweierkomplement()
+{
+    Runtest("Zweierkomplement Test", &ZweierkomplementTest);
+    Runtest("Zweierkomplement buffer too small Test", &ZweierkomplementTooSmallBufferTest);
+}
+
 int main()
 {
     TestGetSection();
+    printf("\n");
+    TestZweierkomplement();
+
     int n;
     printf("Enter a decimal number (max. 1023): ");
     scanf_s("%d", &n);
