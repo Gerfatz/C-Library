@@ -1,6 +1,7 @@
-#include "Test.h"
+﻿#include "Test.h"
 #include "GetSection.h"
 #include "Zweierkomplement.h"
+#include "Convert.h"
 
 
 /*********************************************
@@ -47,5 +48,20 @@ Bool ZweierkomplementTooSmallBufferTest(void)
 {
 	char zweierkomplement[8];
 	return GetZweierKomplement(20, zweierkomplement, 8); //Expects code 0x01
+}
+
+/*********************************************
+****************** Convert ******************
+*********************************************/
+Bool DecToBinTest(void)
+{
+	uint64_t result = Dectobin(2000);
+	return result == 0x296448ED0;
+}
+
+Bool BinToDecTest(void)
+{
+	uint16_t result = Bintodec(0x296448ED0);
+	return result == 2000;
 }
 

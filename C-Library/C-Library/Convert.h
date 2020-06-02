@@ -1,6 +1,7 @@
 #pragma once
-#include <math.h>
+#include "math.h"
+#include "stdint.h"
 
-int Bintodec(long long bin);
+uint16_t Bintodec(uint64_t bin);
 
-long long Dectobin(int dec);
+uint64_t Dectobin(uint16_t dec);

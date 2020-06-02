@@ -6,7 +6,7 @@
 #include "Convert.h"
 
 
-void Runtest(const char* name, Bool(*testFunction)(void)) {
+void RunTest(const char* name, Bool(*testFunction)(void)) {
     if (testFunction()) {
         printf("%s - Erfolgreich\n", name);
     }
@@ -17,16 +17,22 @@ void Runtest(const char* name, Bool(*testFunction)(void)) {
 }
 
 void TestGetSection() {
-    Runtest("GetSection Basis Test", &GetSectionBasicTest);
-    Runtest("GetSection Start Parameter Test", &GetSectionInvalidStartParamTest);
-    Runtest("GetSection End Parameter Test", &GetSectionInvalidEndParamTest);
-    Runtest("GetSection Start larger than End Test", &GetSectionEndLargerThanStartTest);
+    RunTest("GetSection Basis Test", &GetSectionBasicTest);
+    RunTest("GetSection Start Parameter Test", &GetSectionInvalidStartParamTest);
+    RunTest("GetSection End Parameter Test", &GetSectionInvalidEndParamTest);
+    RunTest("GetSection Start larger than End Test", &GetSectionEndLargerThanStartTest);
 }
 
 void TestZweierkomplement()
 {
-    Runtest("Zweierkomplement Test", &ZweierkomplementTest);
-    Runtest("Zweierkomplement buffer too small Test", &ZweierkomplementTooSmallBufferTest);
+    RunTest("Zweierkomplement Test", &ZweierkomplementTest);
+    RunTest("Zweierkomplement buffer too small Test", &ZweierkomplementTooSmallBufferTest);
+}
+
+void ConversionsTest()
+{
+    RunTest("DecToBin", &DecToBinTest);
+    RunTest("BinToDec", &BinToDecTest);
 }
 
 int main()
@@ -34,15 +40,7 @@ int main()
     TestGetSection();
     printf("\n");
     TestZweierkomplement();
-
-    int n;
-    printf("Enter a decimal number (max. 1023): ");
-    scanf_s("%d", &n);
-    printf("%d in decimal = %lld in binary", n, Dectobin(n));
-
-    long long i;
-    printf("\nEnter a binary number: ");
-    scanf_s("%lld", &i);
-    printf("%lld in binary = %d in decimal", i, Bintodec(i));
+    printf("\n");
+    ConversionsTest();
     return 0;
 }
