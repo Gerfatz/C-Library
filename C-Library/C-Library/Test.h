@@ -10,3 +10,6 @@ Bool GetSectionEndLargerThanStartTest(void);
 
 Bool ZweierkomplementTest(void);
 Bool ZweierkomplementTooSmallBufferTest(void);
+
+Bool DecToBinTest(void);
+Bool BinToDecTest(void);
